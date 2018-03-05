@@ -13,6 +13,7 @@ h1{
 }
 
 body{
+  min-width: 100vw;
   background: cadetblue;
   position: relative;
 }  
@@ -22,6 +23,10 @@ form{
 }
 form p{
   padding: .5rem 0rem;
+}
+
+#error-msg {
+  color: red;
 }
 
 #id:valid, #pwd:valid {
