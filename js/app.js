@@ -1,11 +1,10 @@
 // https://github.com/johnboy5358/localStorageLogIn.git
-/*
-  * Helper functions...
-  * (could be in a library)
-*/
-"use strict";
 
-// generic helper functions.
+"use strict";
+/*
+  * generic helper functions.
+*/
+
 var qs = function qs(selectorStr) {
   return document.querySelector(selectorStr);
 };
@@ -30,11 +29,15 @@ var pick = function pick(prop) {
   };
 };
 
+// make a function to get id (alias username)
+var getUsername = pick('id')
+
 /*
   * Onload setup localStorage, initialise Redux.store and event listeners.
 */
 
 try {
+
   // If localStorage does not have this property then initialise.
   if (!window.localStorage._lsLoginForm) {
 
@@ -45,8 +48,6 @@ try {
     })
   }
 
-  // make a function to get id (alias username)
-  var getUsername = pick('id')
 
   // cache the output table ref.
   var outTable = qs('#output-table')
@@ -67,7 +68,7 @@ try {
   var domLogInFormWrapper = qs('#input')
   domLogInFormWrapper.innerHTML = logInForm()
 
-  // Listen for form click events
+  // Listen for form submit events
   var domLogInForm = qs('#loginForm')
   domLogInForm.addEventListener('submit', reactToFormClicks(domLogInForm))
 
@@ -77,9 +78,6 @@ try {
 } catch(e) {
   console.log(e.message);
 }
-/*
-  * End onload setup.
-*/
 
 
 /*
